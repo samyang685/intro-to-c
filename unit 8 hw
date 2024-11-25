@@ -1,6 +1,6 @@
 // unit8.hw
 // Pablo Mendoza
-// Sam
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
