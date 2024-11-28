@@ -41,7 +41,7 @@ void to_uppercase(char *str) {
     }
 }
 
-//This is called 
+//This is called in order to check if an ID is in the valid format
 int is_valid_id(const char *id) {
     if (strlen(id) != 8) return 0;
     if (!isalpha(id[0]) || !isalpha(id[1])) return 0;
