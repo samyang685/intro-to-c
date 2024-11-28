@@ -50,7 +50,6 @@ int is_valid_id(const char *id) {
     }
     return 1;
 }
-
 int is_valid_department(const char *department) {
     return (strcmp(department, "MATH") == 0 || strcmp(department, "CS") == 0 || strcmp(department, "SCIENCE") == 0);
 }
@@ -160,16 +159,16 @@ void print_tuition_invoice() {
             Student s = students[i];
             double total_payment = (s.credit_hours * CREDITHOUR_COST) + FEE;
 
-            // Print student information
+            // This prints the student information
             printf("Here is the tuition invoice for %s:\n", s.name);
             printf("--------------------------------------------------------------------------\n");
             printf("%s %s\n", s.name, s.id);
             printf("Credit Hours: %d ($236.45/credit hour)\n", s.credit_hours);
             printf("Fees: $52\n");
 
-            // Check if discount applies
+            // This checks if the discount applies
             if (s.gpa >= GPA_DISCOUNT) {
-                total_payment *= 0.75;  // Apply 25% discount
+                total_payment *= 0.75;  // This applies a 25% discount
                 printf("Total payment: $%.2f (25%% discount applied)\n", total_payment);
             } else {
                 printf("Total payment: $%.2f ($0 discount applied)\n", total_payment);
