@@ -159,21 +159,30 @@ void print_tuition_invoice() {
         if (strcmp(students[i].id, student_id) == 0) {
             Student s = students[i];
             double total_payment = (s.credit_hours * CREDITHOUR_COST) + FEE;
+
+            // Print student information
+            printf("Here is the tuition invoice for %s:\n", s.name);
+            printf("--------------------------------------------------------------------------\n");
+            printf("%s %s\n", s.name, s.id);
+            printf("Credit Hours: %d ($236.45/credit hour)\n", s.credit_hours);
+            printf("Fees: $52\n");
+
+            // Check if discount applies
             if (s.gpa >= GPA_DISCOUNT) {
-                total_payment *= 0.75;  // Applies the 25% discount
-                printf("Here is the tuition invoice for %s:\n", s.name);
-                printf("--------------------------------------------------------------------------\n");
-                printf("%s %s\n", s.name, s.id);
-                printf("Credit Hours:%d ($236.45/credit hour)\n", s.credit_hours);
-                printf("Fees: $52\n");
+                total_payment *= 0.75;  // Apply 25% discount
+                printf("Total payment: $%.2f (25%% discount applied)\n", total_payment);
+            } else {
                 printf("Total payment: $%.2f ($0 discount applied)\n", total_payment);
-                printf("--------------------------------------------------------------------------\n");
             }
+
+            printf("--------------------------------------------------------------------------\n");
             return;
         }
     }
-    printf("Sorry-student not found!\n");
+    printf("Sorry, student not found!\n");
 }
+
+
 //this prints the faculty information
 void print_faculty_info() {
     char faculty_id[10];
